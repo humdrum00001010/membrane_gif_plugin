@@ -177,3 +177,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/c,vim,linux,macos,elixir,windows,visualstudiocode
+
+# Unifex-generated sources
+/c_src/membrane_template_plugin/_generated/
+.cache/

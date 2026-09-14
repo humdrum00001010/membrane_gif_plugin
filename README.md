@@ -12,6 +12,21 @@ It's a part of the [Membrane Framework](https://membrane.stream).
 
 ## Installation
 
+### FFmpeg
+
+Bundlex fetches FFmpeg through `Membrane.PrecompiledDependencyProvider`,
+then falls back to `pkg-config` for installed `libavcodec`, `libavutil`,
+and `libswscale`. The default provider tag is `6.0.1`, matching the
+[H264 FFmpeg](https://github.com/membraneframework/membrane_h264_ffmpeg_plugin/blob/master/bundlex.exs)
+and [SWScale](https://github.com/membraneframework/membrane_ffmpeg_swscale_plugin/blob/master/bundlex.exs)
+plugins.
+
+Keep FFmpeg version updates aligned with these plugins. The current
+bundle has known security concerns; review
+[FFmpeg security updates](https://ffmpeg.org/security.html) for deployment.
+
+### Elixir
+
 The package can be installed by adding `membrane_template_plugin` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -25,6 +40,14 @@ end
 ## Usage
 
 TODO
+
+## Native editor support
+
+`compile_flags.txt` contains common flags and repository-relative includes.
+Run `mix compile.bundlex --generate-lsp-config` to generate a local
+`compile_commands.json` with the Erlang and FFmpeg include paths.
+That command also rewrites `compile_flags.txt`; keep its machine-specific
+paths out of commits.
 
 ## Copyright and License
 

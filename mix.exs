@@ -9,6 +9,7 @@ defmodule Membrane.Template.Mixfile do
       app: :membrane_template_plugin,
       version: @version,
       elixir: "~> 1.13",
+      compilers: [:unifex, :bundlex] ++ Mix.compilers(),
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -39,6 +40,10 @@ defmodule Membrane.Template.Mixfile do
   defp deps do
     [
       {:membrane_core, "~> 1.0"},
+      {:membrane_raw_video_format, "~> 0.4.5"},
+      {:bundlex, "~> 1.3"},
+      {:unifex, "~> 1.1"},
+      {:membrane_precompiled_dependency_provider, "~> 0.2.1"},
       {:ex_doc, ">= 0.40.0", only: :dev, runtime: false},
       {:dialyxir, ">= 0.0.0", only: :dev, runtime: false},
       {:credo, ">= 0.0.0", only: :dev, runtime: false}

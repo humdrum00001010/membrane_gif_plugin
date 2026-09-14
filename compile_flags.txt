@@ -1,0 +1,13 @@
+-DBUNDLEX_NIF
+-Ic_src
+-Ideps/bunch_native/c_src/bunch
+-Ideps/bunch_native/c_src/bunch/nif
+-Ideps/shmex/c_src/shmex
+-Ideps/shmex/c_src/shmex/nif
+-Ideps/unifex/c_src/unifex/nif
+-O2
+-Wall
+-Wextra
+-fPIC
+-g
+-std=c11
