@@ -39,6 +39,8 @@ defmodule Membrane.Template.Mixfile do
   defp deps do
     [
       {:membrane_core, "~> 1.0"},
+      {:membrane_raw_video_format, "~> 0.4.5"},
+      {:rustler, "~> 0.34.0", runtime: false},
       {:ex_doc, ">= 0.40.0", only: :dev, runtime: false},
       {:dialyxir, ">= 0.0.0", only: :dev, runtime: false},
       {:credo, ">= 0.0.0", only: :dev, runtime: false}
@@ -63,6 +65,17 @@ defmodule Membrane.Template.Mixfile do
     [
       maintainers: ["Membrane Team"],
       licenses: ["Apache-2.0"],
+      files: [
+        "lib",
+        "native/membrane_gif/src",
+        "native/membrane_gif/.cargo",
+        "native/membrane_gif/Cargo.toml",
+        "native/membrane_gif/Cargo.lock",
+        "mix.exs",
+        "README.md",
+        "LICENSE",
+        ".formatter.exs"
+      ],
       links: %{
         "GitHub" => @github_url,
         "Membrane Framework Homepage" => "https://membrane.stream"
