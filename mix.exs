@@ -1,12 +1,12 @@
-defmodule Membrane.Template.Mixfile do
+defmodule Membrane.GIF.Mixfile do
   use Mix.Project
 
   @version "0.1.1"
-  @github_url "https://github.com/membraneframework/membrane_template_plugin"
+  @github_url "https://github.com/membraneframework-labs/membrane_gif_plugin"
 
   def project do
     [
-      app: :membrane_template_plugin,
+      app: :membrane_gif_plugin,
       version: @version,
       elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -15,11 +15,11 @@ defmodule Membrane.Template.Mixfile do
       dialyzer: dialyzer(),
 
       # hex
-      description: "Template Plugin for Membrane Framework",
+      description: "GIF Plugin for Membrane",
       package: package(),
 
       # docs
-      name: "Membrane Template plugin",
+      name: "Membrane GIF plugin",
       source_url: @github_url,
       docs: docs(),
       homepage_url: "https://membrane.stream",
@@ -39,6 +39,8 @@ defmodule Membrane.Template.Mixfile do
   defp deps do
     [
       {:membrane_core, "~> 1.0"},
+      {:membrane_raw_video_format, "~> 0.4.5"},
+      {:rustler, "~> 0.34.0", runtime: false},
       {:ex_doc, ">= 0.40.0", only: :dev, runtime: false},
       {:dialyxir, ">= 0.0.0", only: :dev, runtime: false},
       {:credo, ">= 0.0.0", only: :dev, runtime: false}
@@ -63,6 +65,17 @@ defmodule Membrane.Template.Mixfile do
     [
       maintainers: ["Membrane Team"],
       licenses: ["Apache-2.0"],
+      files: [
+        "lib",
+        "native/membrane_gif/src",
+        "native/membrane_gif/.cargo",
+        "native/membrane_gif/Cargo.toml",
+        "native/membrane_gif/Cargo.lock",
+        "mix.exs",
+        "README.md",
+        "LICENSE",
+        ".formatter.exs"
+      ],
       links: %{
         "GitHub" => @github_url,
         "Membrane Framework Homepage" => "https://membrane.stream"
@@ -75,7 +88,7 @@ defmodule Membrane.Template.Mixfile do
       main: "readme",
       extras: ["README.md", "LICENSE"],
       source_ref: "v#{@version}",
-      nest_modules_by_prefix: [Membrane.Template]
+      nest_modules_by_prefix: [Membrane.GIF]
     ]
   end
 
